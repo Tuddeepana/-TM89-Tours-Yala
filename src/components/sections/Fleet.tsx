@@ -3,13 +3,27 @@ import mini from "@/assets/vehicle-mini.jpg";
 import sedan from "@/assets/vehicle-sedan.jpg";
 import kdhFlat from "@/assets/vehicle-kdh-flat.jpg";
 import kdhHigh from "@/assets/vehicle-kdh-high.jpg";
-import { vehicles } from "@/config/pricing";
+type FleetVehicle = {
+  type: string;
+  passengers: number;
+  luggage: number;
+  features: string[];
+};
+
+const fleetVehicles: FleetVehicle[] = [
+  { type: "MINI CAR", passengers: 3, luggage: 2, features: ["Air conditioning", "Fuel efficient", "City rides"] },
+  { type: "SEDAN", passengers: 4, luggage: 3, features: ["Air conditioning", "Leather interior", "Long distance"] },
+  { type: "MINI VAN", passengers: 6, luggage: 5, features: ["Air conditioning", "Spacious", "Family travel"] },
+  { type: "KDH FLAT ROOF", passengers: 9, luggage: 8, features: ["Air conditioning", "Reclining seats", "Group travel"] },
+  { type: "KDH HIGH ROOF", passengers: 12, luggage: 12, features: ["Air conditioning", "Stand-up cabin", "Premium tours"] },
+];
 
 const images: Record<string, string> = {
-  "Mini Car": mini,
-  "Sedan": sedan,
-  "KDH Flat Roof": kdhFlat,
-  "KDH High Roof": kdhHigh,
+  "MINI CAR": mini,
+  "SEDAN": sedan,
+  "MINI VAN": kdhFlat, // Fallback image for mini van
+  "KDH FLAT ROOF": kdhFlat,
+  "KDH HIGH ROOF": kdhHigh,
 };
 
 export function Fleet() {
@@ -26,8 +40,8 @@ export function Fleet() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {vehicles.map((v) => (
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {fleetVehicles.map((v) => (
             <div key={v.type} className="hover-lift rounded-3xl border border-border bg-card overflow-hidden shadow-soft">
               <div className="aspect-[4/3] overflow-hidden bg-muted">
                 <img src={images[v.type]} alt={v.type} loading="lazy" width={1024} height={768}

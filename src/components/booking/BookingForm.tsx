@@ -1,18 +1,18 @@
 import { useMemo, useState } from "react";
 import { ArrowRight, Calendar, Clock, MapPin, Car } from "lucide-react";
-import { vehicles, popularPickups, findPrice, formatLKR, type VehicleType } from "@/config/pricing";
+import { vehicles, pickupLocations, locations, calculateRideFare, formatLKR, type VehicleType } from "@/config/pricing";
 import { bookingMessage } from "@/lib/wa";
 import { WhatsAppIcon } from "@/components/layout/WhatsAppIcon";
 
 export function BookingForm({ variant = "hero" }: { variant?: "hero" | "page" }) {
   const today = new Date().toISOString().slice(0, 10);
-  const [pickup, setPickup] = useState("Bandaranaike Airport");
+  const [pickup, setPickup] = useState("Colombo Airport (BIA)");
   const [drop, setDrop] = useState("Colombo");
   const [date, setDate] = useState(today);
   const [time, setTime] = useState("10:00");
-  const [vehicle, setVehicle] = useState<VehicleType>("Sedan");
+  const [vehicle, setVehicle] = useState<VehicleType>("SEDAN");
 
-  const price = useMemo(() => findPrice(pickup, drop, vehicle), [pickup, drop, vehicle]);
+  const price = useMemo(() => calculateRideFare(pickup, drop, vehicle)?.price ?? null, [pickup, drop, vehicle]);
   const whatsappUrl = bookingMessage({ pickup, drop, vehicle, date, time, price });
 
   const inputBase =
@@ -27,12 +27,14 @@ export function BookingForm({ variant = "hero" }: { variant?: "hero" | "page" })
 
       <div className="grid gap-3 sm:grid-cols-2">
         <Field icon={<MapPin className="h-4 w-4" />} label="Pickup">
-          <input list="pickup-list" className={inputBase} value={pickup} onChange={(e) => setPickup(e.target.value)} placeholder="From" />
-          <datalist id="pickup-list">{popularPickups.map((p) => <option key={p} value={p} />)}</datalist>
+          <select className={inputBase} value={pickup} onChange={(e) => setPickup(e.target.value)}>
+            {pickupLocations.map((p) => <option key={p} value={p}>{p}</option>)}
+          </select>
         </Field>
         <Field icon={<MapPin className="h-4 w-4" />} label="Drop">
-          <input list="drop-list" className={inputBase} value={drop} onChange={(e) => setDrop(e.target.value)} placeholder="To" />
-          <datalist id="drop-list">{popularPickups.map((p) => <option key={p} value={p} />)}</datalist>
+          <select className={inputBase} value={drop} onChange={(e) => setDrop(e.target.value)}>
+            {locations.map((p) => <option key={p} value={p}>{p}</option>)}
+          </select>
         </Field>
         <Field icon={<Calendar className="h-4 w-4" />} label="Date">
           <input type="date" className={inputBase} value={date} min={today} onChange={(e) => setDate(e.target.value)} />
@@ -43,8 +45,8 @@ export function BookingForm({ variant = "hero" }: { variant?: "hero" | "page" })
         <Field icon={<Car className="h-4 w-4" />} label="Vehicle" className="sm:col-span-2">
           <select className={inputBase} value={vehicle} onChange={(e) => setVehicle(e.target.value as VehicleType)}>
             {vehicles.map((v) => (
-              <option key={v.type} value={v.type}>
-                {v.type} · up to {v.passengers} pax
+              <option key={v} value={v}>
+                {v}
               </option>
             ))}
           </select>
