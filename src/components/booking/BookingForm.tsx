@@ -67,22 +67,14 @@ export function BookingForm({ variant = "hero" }: { variant?: "hero" | "page" })
         </div>
       </div>
 
-      <div className="mt-4 grid gap-2 sm:grid-cols-2">
+      <div className="mt-4">
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener"
-          className="inline-flex items-center justify-center gap-2 rounded-xl bg-whatsapp px-5 py-3.5 font-semibold text-white shadow-soft hover:opacity-90 transition"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-whatsapp px-5 py-3.5 font-semibold text-white shadow-soft hover:opacity-90 transition"
         >
           <WhatsAppIcon className="h-5 w-5" /> Book via WhatsApp
-        </a>
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener"
-          className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-ink/10 bg-white px-5 py-3.5 font-semibold text-ink hover:border-primary hover:text-primary transition"
-        >
-          Get a quote <ArrowRight className="h-4 w-4" />
         </a>
       </div>
     </div>

@@ -11,10 +11,10 @@ export const siteConfig = {
   language: "en",
 
   // Contact
-  phone: "+94 77 123 4567",
-  phoneHref: "tel:+94771234567",
-  whatsapp: "+94771234567", // E.164 without +
-  whatsappNumber: "94771234567",
+  phone: "+94 71 379 5599",
+  phoneHref: "tel:+94713795599",
+  whatsapp: "+94713795599", // E.164 without +
+  whatsappNumber: "94713795599",
   email: "hello@tm89toursyala.com",
   address: "Tissamaharama Road, Yala, Sri Lanka",
   mapEmbed:

@@ -8,7 +8,7 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 const navItems = [
   { to: "/", label: "Home" },
   { to: "/airport-transfers", label: "Airport Transfers" },
-  { to: "/tours", label: "Tours" },
+  // { to: "/tours", label: "Tours" },
   { to: "/about", label: "About" },
   { to: "/reviews", label: "Reviews" },
   { to: "/contact", label: "Contact" },
@@ -34,9 +34,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <span className="grid h-10 w-10 place-items-center rounded-xl gradient-primary text-white font-bold shadow-soft">
-            T
-          </span>
+          <img src="/logo.jpeg" alt={siteConfig.name} className="h-10 w-10 rounded-xl object-cover shadow-soft" />
           <span className="flex flex-col leading-tight">
             <span className={cn("font-display text-base font-bold", solid ? "text-ink" : "text-white")}>
               {siteConfig.shortName}

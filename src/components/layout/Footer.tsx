@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="grid h-10 w-10 place-items-center rounded-xl gradient-primary text-white font-bold">T</span>
+              <img src="/logo.jpeg" alt={siteConfig.name} className="h-10 w-10 rounded-xl object-cover" />
               <span className="font-display text-lg font-bold text-white">{siteConfig.name}</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed">{siteConfig.description}</p>
@@ -42,9 +42,8 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">Services</h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link to="/airport-transfers" className="hover:text-white">Airport transfers</Link></li>
-              <li><Link to="/tours" className="hover:text-white">Sri Lanka tours</Link></li>
-              <li><Link to="/tours" className="hover:text-white">Custom tours</Link></li>
-              <li><Link to="/airport-transfers" className="hover:text-white">KDH van hire</Link></li>
+              {/* <li><Link to="/tours" className="hover:text-white">Sri Lanka tours</Link></li>
+              <li><Link to="/tours" className="hover:text-white">Custom tours</Link></li> */}
             </ul>
           </div>
 
