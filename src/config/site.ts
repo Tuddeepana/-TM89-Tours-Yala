@@ -4,9 +4,10 @@
 export const siteConfig = {
   name: "TM89 Tours Yala",
   shortName: "TM89 Tours",
-  tagline: "Premium Taxi & Tour Service in Sri Lanka",
+  tagline: "Sri Lanka Taxi Service & Airport Transfers",
   description:
-    "Safe, reliable and comfortable airport transfers, taxi service and custom tours across Sri Lanka. 24/7 booking via WhatsApp.",
+    "Book reliable airport transfers, private taxis, and Sri Lanka tours with TM89 Tours Yala. Fixed prices, professional drivers, 24/7 support, and instant WhatsApp booking.",
+  url: "https://tm89tours.com",
   country: "Sri Lanka",
   language: "en",
 

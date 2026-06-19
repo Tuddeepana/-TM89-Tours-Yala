@@ -9,17 +9,81 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YalaSafariTransfersRouteImport } from './routes/yala-safari-transfers'
 import { Route as ToursRouteImport } from './routes/tours'
+import { Route as TaxiColomboToUnawatunaRouteImport } from './routes/taxi-colombo-to-unawatuna'
+import { Route as TaxiColomboToGalleRouteImport } from './routes/taxi-colombo-to-galle'
+import { Route as TaxiColomboAirportToYalaRouteImport } from './routes/taxi-colombo-airport-to-yala'
+import { Route as TaxiColomboAirportToSigiriyaRouteImport } from './routes/taxi-colombo-airport-to-sigiriya'
+import { Route as TaxiColomboAirportToMirissaRouteImport } from './routes/taxi-colombo-airport-to-mirissa'
+import { Route as TaxiColomboAirportToEllaRouteImport } from './routes/taxi-colombo-airport-to-ella'
+import { Route as TaxiColomboAirportToArugamBayRouteImport } from './routes/taxi-colombo-airport-to-arugam-bay'
+import { Route as SriLankaTourPackagesRouteImport } from './routes/sri-lanka-tour-packages'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as PrivateDriverSriLankaRouteImport } from './routes/private-driver-sri-lanka'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AirportTransfersRouteImport } from './routes/airport-transfers'
+import { Route as AirportTransferSriLankaRouteImport } from './routes/airport-transfer-sri-lanka'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as ClustersClusterIdRouteImport } from './routes/clusters/$clusterId'
+import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 
+const YalaSafariTransfersRoute = YalaSafariTransfersRouteImport.update({
+  id: '/yala-safari-transfers',
+  path: '/yala-safari-transfers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToursRoute = ToursRouteImport.update({
   id: '/tours',
   path: '/tours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TaxiColomboToUnawatunaRoute = TaxiColomboToUnawatunaRouteImport.update({
+  id: '/taxi-colombo-to-unawatuna',
+  path: '/taxi-colombo-to-unawatuna',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TaxiColomboToGalleRoute = TaxiColomboToGalleRouteImport.update({
+  id: '/taxi-colombo-to-galle',
+  path: '/taxi-colombo-to-galle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TaxiColomboAirportToYalaRoute =
+  TaxiColomboAirportToYalaRouteImport.update({
+    id: '/taxi-colombo-airport-to-yala',
+    path: '/taxi-colombo-airport-to-yala',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TaxiColomboAirportToSigiriyaRoute =
+  TaxiColomboAirportToSigiriyaRouteImport.update({
+    id: '/taxi-colombo-airport-to-sigiriya',
+    path: '/taxi-colombo-airport-to-sigiriya',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TaxiColomboAirportToMirissaRoute =
+  TaxiColomboAirportToMirissaRouteImport.update({
+    id: '/taxi-colombo-airport-to-mirissa',
+    path: '/taxi-colombo-airport-to-mirissa',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TaxiColomboAirportToEllaRoute =
+  TaxiColomboAirportToEllaRouteImport.update({
+    id: '/taxi-colombo-airport-to-ella',
+    path: '/taxi-colombo-airport-to-ella',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TaxiColomboAirportToArugamBayRoute =
+  TaxiColomboAirportToArugamBayRouteImport.update({
+    id: '/taxi-colombo-airport-to-arugam-bay',
+    path: '/taxi-colombo-airport-to-arugam-bay',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SriLankaTourPackagesRoute = SriLankaTourPackagesRouteImport.update({
+  id: '/sri-lanka-tour-packages',
+  path: '/sri-lanka-tour-packages',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -32,6 +96,11 @@ const ReviewsRoute = ReviewsRouteImport.update({
   path: '/reviews',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivateDriverSriLankaRoute = PrivateDriverSriLankaRouteImport.update({
+  id: '/private-driver-sri-lanka',
+  path: '/private-driver-sri-lanka',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -40,6 +109,11 @@ const ContactRoute = ContactRouteImport.update({
 const AirportTransfersRoute = AirportTransfersRouteImport.update({
   id: '/airport-transfers',
   path: '/airport-transfers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AirportTransferSriLankaRoute = AirportTransferSriLankaRouteImport.update({
+  id: '/airport-transfer-sri-lanka',
+  path: '/airport-transfer-sri-lanka',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -52,82 +126,258 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClustersClusterIdRoute = ClustersClusterIdRouteImport.update({
+  id: '/clusters/$clusterId',
+  path: '/clusters/$clusterId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/airport-transfer-sri-lanka': typeof AirportTransferSriLankaRoute
   '/airport-transfers': typeof AirportTransfersRoute
   '/contact': typeof ContactRoute
+  '/private-driver-sri-lanka': typeof PrivateDriverSriLankaRoute
   '/reviews': typeof ReviewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sri-lanka-tour-packages': typeof SriLankaTourPackagesRoute
+  '/taxi-colombo-airport-to-arugam-bay': typeof TaxiColomboAirportToArugamBayRoute
+  '/taxi-colombo-airport-to-ella': typeof TaxiColomboAirportToEllaRoute
+  '/taxi-colombo-airport-to-mirissa': typeof TaxiColomboAirportToMirissaRoute
+  '/taxi-colombo-airport-to-sigiriya': typeof TaxiColomboAirportToSigiriyaRoute
+  '/taxi-colombo-airport-to-yala': typeof TaxiColomboAirportToYalaRoute
+  '/taxi-colombo-to-galle': typeof TaxiColomboToGalleRoute
+  '/taxi-colombo-to-unawatuna': typeof TaxiColomboToUnawatunaRoute
   '/tours': typeof ToursRoute
+  '/yala-safari-transfers': typeof YalaSafariTransfersRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/clusters/$clusterId': typeof ClustersClusterIdRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/airport-transfer-sri-lanka': typeof AirportTransferSriLankaRoute
   '/airport-transfers': typeof AirportTransfersRoute
   '/contact': typeof ContactRoute
+  '/private-driver-sri-lanka': typeof PrivateDriverSriLankaRoute
   '/reviews': typeof ReviewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sri-lanka-tour-packages': typeof SriLankaTourPackagesRoute
+  '/taxi-colombo-airport-to-arugam-bay': typeof TaxiColomboAirportToArugamBayRoute
+  '/taxi-colombo-airport-to-ella': typeof TaxiColomboAirportToEllaRoute
+  '/taxi-colombo-airport-to-mirissa': typeof TaxiColomboAirportToMirissaRoute
+  '/taxi-colombo-airport-to-sigiriya': typeof TaxiColomboAirportToSigiriyaRoute
+  '/taxi-colombo-airport-to-yala': typeof TaxiColomboAirportToYalaRoute
+  '/taxi-colombo-to-galle': typeof TaxiColomboToGalleRoute
+  '/taxi-colombo-to-unawatuna': typeof TaxiColomboToUnawatunaRoute
   '/tours': typeof ToursRoute
+  '/yala-safari-transfers': typeof YalaSafariTransfersRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/clusters/$clusterId': typeof ClustersClusterIdRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/airport-transfer-sri-lanka': typeof AirportTransferSriLankaRoute
   '/airport-transfers': typeof AirportTransfersRoute
   '/contact': typeof ContactRoute
+  '/private-driver-sri-lanka': typeof PrivateDriverSriLankaRoute
   '/reviews': typeof ReviewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sri-lanka-tour-packages': typeof SriLankaTourPackagesRoute
+  '/taxi-colombo-airport-to-arugam-bay': typeof TaxiColomboAirportToArugamBayRoute
+  '/taxi-colombo-airport-to-ella': typeof TaxiColomboAirportToEllaRoute
+  '/taxi-colombo-airport-to-mirissa': typeof TaxiColomboAirportToMirissaRoute
+  '/taxi-colombo-airport-to-sigiriya': typeof TaxiColomboAirportToSigiriyaRoute
+  '/taxi-colombo-airport-to-yala': typeof TaxiColomboAirportToYalaRoute
+  '/taxi-colombo-to-galle': typeof TaxiColomboToGalleRoute
+  '/taxi-colombo-to-unawatuna': typeof TaxiColomboToUnawatunaRoute
   '/tours': typeof ToursRoute
+  '/yala-safari-transfers': typeof YalaSafariTransfersRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/clusters/$clusterId': typeof ClustersClusterIdRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/airport-transfer-sri-lanka'
     | '/airport-transfers'
     | '/contact'
+    | '/private-driver-sri-lanka'
     | '/reviews'
     | '/sitemap.xml'
+    | '/sri-lanka-tour-packages'
+    | '/taxi-colombo-airport-to-arugam-bay'
+    | '/taxi-colombo-airport-to-ella'
+    | '/taxi-colombo-airport-to-mirissa'
+    | '/taxi-colombo-airport-to-sigiriya'
+    | '/taxi-colombo-airport-to-yala'
+    | '/taxi-colombo-to-galle'
+    | '/taxi-colombo-to-unawatuna'
     | '/tours'
+    | '/yala-safari-transfers'
+    | '/blog/$slug'
+    | '/clusters/$clusterId'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/airport-transfer-sri-lanka'
     | '/airport-transfers'
     | '/contact'
+    | '/private-driver-sri-lanka'
     | '/reviews'
     | '/sitemap.xml'
+    | '/sri-lanka-tour-packages'
+    | '/taxi-colombo-airport-to-arugam-bay'
+    | '/taxi-colombo-airport-to-ella'
+    | '/taxi-colombo-airport-to-mirissa'
+    | '/taxi-colombo-airport-to-sigiriya'
+    | '/taxi-colombo-airport-to-yala'
+    | '/taxi-colombo-to-galle'
+    | '/taxi-colombo-to-unawatuna'
     | '/tours'
+    | '/yala-safari-transfers'
+    | '/blog/$slug'
+    | '/clusters/$clusterId'
+    | '/blog'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/airport-transfer-sri-lanka'
     | '/airport-transfers'
     | '/contact'
+    | '/private-driver-sri-lanka'
     | '/reviews'
     | '/sitemap.xml'
+    | '/sri-lanka-tour-packages'
+    | '/taxi-colombo-airport-to-arugam-bay'
+    | '/taxi-colombo-airport-to-ella'
+    | '/taxi-colombo-airport-to-mirissa'
+    | '/taxi-colombo-airport-to-sigiriya'
+    | '/taxi-colombo-airport-to-yala'
+    | '/taxi-colombo-to-galle'
+    | '/taxi-colombo-to-unawatuna'
     | '/tours'
+    | '/yala-safari-transfers'
+    | '/blog/$slug'
+    | '/clusters/$clusterId'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AirportTransferSriLankaRoute: typeof AirportTransferSriLankaRoute
   AirportTransfersRoute: typeof AirportTransfersRoute
   ContactRoute: typeof ContactRoute
+  PrivateDriverSriLankaRoute: typeof PrivateDriverSriLankaRoute
   ReviewsRoute: typeof ReviewsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SriLankaTourPackagesRoute: typeof SriLankaTourPackagesRoute
+  TaxiColomboAirportToArugamBayRoute: typeof TaxiColomboAirportToArugamBayRoute
+  TaxiColomboAirportToEllaRoute: typeof TaxiColomboAirportToEllaRoute
+  TaxiColomboAirportToMirissaRoute: typeof TaxiColomboAirportToMirissaRoute
+  TaxiColomboAirportToSigiriyaRoute: typeof TaxiColomboAirportToSigiriyaRoute
+  TaxiColomboAirportToYalaRoute: typeof TaxiColomboAirportToYalaRoute
+  TaxiColomboToGalleRoute: typeof TaxiColomboToGalleRoute
+  TaxiColomboToUnawatunaRoute: typeof TaxiColomboToUnawatunaRoute
   ToursRoute: typeof ToursRoute
+  YalaSafariTransfersRoute: typeof YalaSafariTransfersRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  ClustersClusterIdRoute: typeof ClustersClusterIdRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/yala-safari-transfers': {
+      id: '/yala-safari-transfers'
+      path: '/yala-safari-transfers'
+      fullPath: '/yala-safari-transfers'
+      preLoaderRoute: typeof YalaSafariTransfersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tours': {
       id: '/tours'
       path: '/tours'
       fullPath: '/tours'
       preLoaderRoute: typeof ToursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/taxi-colombo-to-unawatuna': {
+      id: '/taxi-colombo-to-unawatuna'
+      path: '/taxi-colombo-to-unawatuna'
+      fullPath: '/taxi-colombo-to-unawatuna'
+      preLoaderRoute: typeof TaxiColomboToUnawatunaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/taxi-colombo-to-galle': {
+      id: '/taxi-colombo-to-galle'
+      path: '/taxi-colombo-to-galle'
+      fullPath: '/taxi-colombo-to-galle'
+      preLoaderRoute: typeof TaxiColomboToGalleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/taxi-colombo-airport-to-yala': {
+      id: '/taxi-colombo-airport-to-yala'
+      path: '/taxi-colombo-airport-to-yala'
+      fullPath: '/taxi-colombo-airport-to-yala'
+      preLoaderRoute: typeof TaxiColomboAirportToYalaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/taxi-colombo-airport-to-sigiriya': {
+      id: '/taxi-colombo-airport-to-sigiriya'
+      path: '/taxi-colombo-airport-to-sigiriya'
+      fullPath: '/taxi-colombo-airport-to-sigiriya'
+      preLoaderRoute: typeof TaxiColomboAirportToSigiriyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/taxi-colombo-airport-to-mirissa': {
+      id: '/taxi-colombo-airport-to-mirissa'
+      path: '/taxi-colombo-airport-to-mirissa'
+      fullPath: '/taxi-colombo-airport-to-mirissa'
+      preLoaderRoute: typeof TaxiColomboAirportToMirissaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/taxi-colombo-airport-to-ella': {
+      id: '/taxi-colombo-airport-to-ella'
+      path: '/taxi-colombo-airport-to-ella'
+      fullPath: '/taxi-colombo-airport-to-ella'
+      preLoaderRoute: typeof TaxiColomboAirportToEllaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/taxi-colombo-airport-to-arugam-bay': {
+      id: '/taxi-colombo-airport-to-arugam-bay'
+      path: '/taxi-colombo-airport-to-arugam-bay'
+      fullPath: '/taxi-colombo-airport-to-arugam-bay'
+      preLoaderRoute: typeof TaxiColomboAirportToArugamBayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sri-lanka-tour-packages': {
+      id: '/sri-lanka-tour-packages'
+      path: '/sri-lanka-tour-packages'
+      fullPath: '/sri-lanka-tour-packages'
+      preLoaderRoute: typeof SriLankaTourPackagesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -144,6 +394,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/private-driver-sri-lanka': {
+      id: '/private-driver-sri-lanka'
+      path: '/private-driver-sri-lanka'
+      fullPath: '/private-driver-sri-lanka'
+      preLoaderRoute: typeof PrivateDriverSriLankaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -156,6 +413,13 @@ declare module '@tanstack/react-router' {
       path: '/airport-transfers'
       fullPath: '/airport-transfers'
       preLoaderRoute: typeof AirportTransfersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/airport-transfer-sri-lanka': {
+      id: '/airport-transfer-sri-lanka'
+      path: '/airport-transfer-sri-lanka'
+      fullPath: '/airport-transfer-sri-lanka'
+      preLoaderRoute: typeof AirportTransferSriLankaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -172,17 +436,52 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clusters/$clusterId': {
+      id: '/clusters/$clusterId'
+      path: '/clusters/$clusterId'
+      fullPath: '/clusters/$clusterId'
+      preLoaderRoute: typeof ClustersClusterIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AirportTransferSriLankaRoute: AirportTransferSriLankaRoute,
   AirportTransfersRoute: AirportTransfersRoute,
   ContactRoute: ContactRoute,
+  PrivateDriverSriLankaRoute: PrivateDriverSriLankaRoute,
   ReviewsRoute: ReviewsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SriLankaTourPackagesRoute: SriLankaTourPackagesRoute,
+  TaxiColomboAirportToArugamBayRoute: TaxiColomboAirportToArugamBayRoute,
+  TaxiColomboAirportToEllaRoute: TaxiColomboAirportToEllaRoute,
+  TaxiColomboAirportToMirissaRoute: TaxiColomboAirportToMirissaRoute,
+  TaxiColomboAirportToSigiriyaRoute: TaxiColomboAirportToSigiriyaRoute,
+  TaxiColomboAirportToYalaRoute: TaxiColomboAirportToYalaRoute,
+  TaxiColomboToGalleRoute: TaxiColomboToGalleRoute,
+  TaxiColomboToUnawatunaRoute: TaxiColomboToUnawatunaRoute,
   ToursRoute: ToursRoute,
+  YalaSafariTransfersRoute: YalaSafariTransfersRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  ClustersClusterIdRoute: ClustersClusterIdRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

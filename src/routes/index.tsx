@@ -9,19 +9,22 @@ import { Reviews } from "@/components/sections/Reviews";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
 import { siteConfig } from "@/config/site";
-import { localBusinessSchema } from "@/config/seo";
+import { localBusinessSchema, seoDefaults } from "@/config/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: `${siteConfig.name} — ${siteConfig.tagline}` },
-      { name: "description", content: siteConfig.description },
-      { property: "og:title", content: `${siteConfig.name} — ${siteConfig.tagline}` },
-      { property: "og:description", content: siteConfig.description },
+      { title: seoDefaults.defaultTitle },
+      { name: "description", content: seoDefaults.description },
+      { name: "keywords", content: seoDefaults.keywords.join(", ") },
+      { property: "og:title", content: seoDefaults.defaultTitle },
+      { property: "og:description", content: seoDefaults.description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: seoDefaults.url },
+      { property: "og:image", content: seoDefaults.ogImage },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: seoDefaults.url }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(localBusinessSchema) }],
   }),
   component: Home,
