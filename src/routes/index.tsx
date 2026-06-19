@@ -1,29 +1,43 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteShell } from "@/components/layout/SiteShell";
+import { Hero } from "@/components/sections/Hero";
+import { Features } from "@/components/sections/Features";
+import { Destinations } from "@/components/sections/Destinations";
+import { CustomTour } from "@/components/sections/CustomTour";
+import { Fleet } from "@/components/sections/Fleet";
+import { Reviews } from "@/components/sections/Reviews";
+import { About } from "@/components/sections/About";
+import { Contact } from "@/components/sections/Contact";
+import { siteConfig } from "@/config/site";
+import { localBusinessSchema } from "@/config/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: `${siteConfig.name} — ${siteConfig.tagline}` },
+      { name: "description", content: siteConfig.description },
+      { property: "og:title", content: `${siteConfig.name} — ${siteConfig.tagline}` },
+      { property: "og:description", content: siteConfig.description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(localBusinessSchema) }],
   }),
-  component: Index,
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <SiteShell>
+      <Hero />
+      <Features />
+      <Destinations />
+      <CustomTour />
+      <Fleet />
+      <Reviews />
+      <About />
+      <Contact />
+    </SiteShell>
   );
 }
