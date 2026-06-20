@@ -19,10 +19,10 @@ export function BookingForm({ variant = "hero" }: { variant?: "hero" | "page" })
         <span className="text-xs font-medium text-primary">No card required</span>
       </div>
 
-      <div className="mb-5 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+      <div className="mb-5 flex flex-wrap gap-2">
         <button
           onClick={() => setActiveTab("ride")}
-          className={`whitespace-nowrap rounded-lg px-4 py-2.5 text-sm font-semibold transition ${
+          className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-semibold transition sm:flex-none sm:px-4 ${
             activeTab === "ride" ? "bg-primary text-primary-foreground shadow-sm" : "bg-muted text-muted-foreground hover:bg-muted/80"
           }`}
         >
@@ -30,15 +30,15 @@ export function BookingForm({ variant = "hero" }: { variant?: "hero" | "page" })
         </button>
         <button
           onClick={() => setActiveTab("custom")}
-          className={`whitespace-nowrap rounded-lg px-4 py-2.5 text-sm font-semibold transition ${
+          className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-semibold transition sm:flex-none sm:px-4 ${
             activeTab === "custom" ? "bg-primary text-primary-foreground shadow-sm" : "bg-muted text-muted-foreground hover:bg-muted/80"
           }`}
         >
-          Custom Request
+          Custom
         </button>
         <button
           onClick={() => setActiveTab("tour")}
-          className={`whitespace-nowrap rounded-lg px-4 py-2.5 text-sm font-semibold transition ${
+          className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-semibold transition sm:flex-none sm:px-4 ${
             activeTab === "tour" ? "bg-primary text-primary-foreground shadow-sm" : "bg-muted text-muted-foreground hover:bg-muted/80"
           }`}
         >
@@ -95,12 +95,12 @@ function RideForm() {
       </div>
 
       <div className="mt-5 rounded-2xl gradient-primary p-4 text-white flex items-center justify-between shadow-soft">
-        <div>
-          <div className="text-xs uppercase tracking-wider text-white/80">{pickup} → {drop}</div>
-          <div className="font-display text-2xl font-bold">
+        <div className="min-w-0 flex-1">
+          <div className="text-xs uppercase tracking-wider text-white/80 line-clamp-1 truncate mr-2">{pickup} → {drop}</div>
+          <div className="font-display text-2xl font-bold truncate">
             {price ? formatLKR(price) : "Get quote"}
           </div>
-          <div className="text-xs text-white/80 mt-0.5">All-inclusive · fuel & driver</div>
+          <div className="text-xs text-white/80 mt-0.5 truncate">All-inclusive · fuel & driver</div>
         </div>
         <div className="hidden sm:block text-right">
           <div className="text-xs text-white/80">Vehicle</div>
@@ -211,12 +211,12 @@ function TourForm() {
       </div>
       
       <div className="mt-5 rounded-2xl gradient-primary p-4 text-white flex items-center justify-between shadow-soft">
-        <div>
-          <div className="text-xs uppercase tracking-wider text-white/80">{days} Day{days > 1 ? 's' : ''} Tour</div>
-          <div className="font-display text-2xl font-bold">
+        <div className="min-w-0 flex-1">
+          <div className="text-xs uppercase tracking-wider text-white/80 truncate">{days} Day{days > 1 ? 's' : ''} Tour</div>
+          <div className="font-display text-2xl font-bold truncate">
             {price ? formatLKR(price) : "Get quote"}
           </div>
-          <div className="text-xs text-white/80 mt-0.5">Vehicle: {vehicle}</div>
+          <div className="text-xs text-white/80 mt-0.5 truncate">Vehicle: {vehicle}</div>
         </div>
       </div>
 
