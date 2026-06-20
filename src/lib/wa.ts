@@ -57,3 +57,44 @@ export function customTourMessage(opts: {
   ].join("\n");
   return buildWhatsAppUrl(msg);
 }
+
+export function customRideMessage(opts: {
+  name: string;
+  pickup: string;
+  destination: string;
+  vehicle: string;
+  message: string;
+}) {
+  const lines = [
+    `Hello ${siteConfig.name},`,
+    ``,
+    `I'd like to make a custom ride request:`,
+    `👤 Name: ${opts.name}`,
+    `📍 Pickup: ${opts.pickup}`,
+    `🏁 Destination: ${opts.destination}`,
+    `🚘 Vehicle: ${opts.vehicle}`,
+    `💬 Message: ${opts.message || "—"}`,
+    ``,
+    `Please confirm. Thank you!`,
+  ];
+  return buildWhatsAppUrl(lines.join("\n"));
+}
+
+export function tourMessage(opts: {
+  startDate: string;
+  endDate: string;
+  vehicle: string;
+  price?: number | null;
+}) {
+  const lines = [
+    `Hello ${siteConfig.name},`,
+    ``,
+    `I'd like to book a tour:`,
+    `📅 Start Date: ${opts.startDate}`,
+    `📅 End Date: ${opts.endDate}`,
+    `🚘 Vehicle: ${opts.vehicle}`,
+  ];
+  if (opts.price) lines.push(`💰 Quoted price: Rs. ${opts.price.toLocaleString("en-LK")}`);
+  lines.push(``, `Please confirm availability. Thank you!`);
+  return buildWhatsAppUrl(lines.join("\n"));
+}
