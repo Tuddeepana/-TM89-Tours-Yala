@@ -1,6 +1,4 @@
 import { Briefcase, Snowflake, Users } from "lucide-react";
-import mini from "@/assets/vehicle-mini.jpg";
-import sedan from "@/assets/vehicle-sedan.jpg";
 import kdhFlat from "@/assets/vehicle-kdh-flat.jpg";
 import kdhHigh from "@/assets/vehicle-kdh-high.jpg";
 type FleetVehicle = {
@@ -19,8 +17,8 @@ const fleetVehicles: FleetVehicle[] = [
 ];
 
 const images: Record<string, string> = {
-  "MINI CAR": mini,
-  "SEDAN": sedan,
+  "MINI CAR": "/mini.jpeg",
+  "SEDAN": "/sedan.jpeg",
   "MINI VAN": kdhFlat, // Fallback image for mini van
   "KDH FLAT ROOF": kdhFlat,
   "KDH HIGH ROOF": kdhHigh,

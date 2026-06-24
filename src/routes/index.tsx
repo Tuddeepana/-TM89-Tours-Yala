@@ -5,6 +5,7 @@ import { Features } from "@/components/sections/Features";
 import { Destinations } from "@/components/sections/Destinations";
 import { CustomTour } from "@/components/sections/CustomTour";
 import { Fleet } from "@/components/sections/Fleet";
+import { Gallery } from "@/components/sections/Gallery";
 import { Reviews } from "@/components/sections/Reviews";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
@@ -37,6 +38,7 @@ function Home() {
       <Features />
       <Destinations />
       <CustomTour />
+      <Gallery />
       <Fleet />
       <Reviews />
       <About />
