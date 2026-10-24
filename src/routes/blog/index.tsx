@@ -15,7 +15,7 @@ export const Route = createFileRoute("/blog/")({
         <h1 className="mb-8 text-4xl font-bold">Sri Lanka Travel Blog</h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog) => (
-            <Link key={blog.slug} to={`/blog/${blog.slug}`} className="group block overflow-hidden rounded-xl border bg-card shadow-sm transition-all hover:shadow-md">
+            <Link key={blog.slug} to={`/blog/${blog.slug}` as any} className="group block overflow-hidden rounded-xl border bg-card shadow-sm transition-all hover:shadow-md">
               <div className="aspect-video overflow-hidden">
                 <img src={blog.image} alt={blog.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
               </div>
