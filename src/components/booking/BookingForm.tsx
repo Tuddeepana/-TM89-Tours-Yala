@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { ArrowRight, Calendar, Clock, MapPin, Car, User, MessageSquare, CalendarRange } from "lucide-react";
-import { vehicles, pickupLocations, locations, calculateRideFare, formatLKR, type VehicleType, tourPricing } from "@/config/pricing";
+import { vehicles, pickupLocations, locations, formatLKR, type VehicleType, tourPricing } from "@/config/pricing";
 import { bookingMessage, customRideMessage, tourMessage } from "@/lib/wa";
 import { WhatsAppIcon } from "@/components/layout/WhatsAppIcon";
 
@@ -61,8 +61,7 @@ function RideForm() {
   const [time, setTime] = useState("10:00");
   const [vehicle, setVehicle] = useState<VehicleType>("SEDAN");
 
-  const price = useMemo(() => calculateRideFare(pickup, drop, vehicle)?.price ?? null, [pickup, drop, vehicle]);
-  const whatsappUrl = bookingMessage({ pickup, drop, vehicle, date, time, price });
+  const whatsappUrl = bookingMessage({ pickup, drop, vehicle, date, time });
 
   return (
     <>
@@ -98,7 +97,7 @@ function RideForm() {
         <div className="min-w-0 flex-1">
           <div className="text-xs uppercase tracking-wider text-white/80 line-clamp-1 truncate mr-2">{pickup} → {drop}</div>
           <div className="font-display text-2xl font-bold truncate">
-            {price ? formatLKR(price) : "Get quote"}
+            Get quote
           </div>
           <div className="text-xs text-white/80 mt-0.5 truncate">All-inclusive · fuel & driver</div>
         </div>

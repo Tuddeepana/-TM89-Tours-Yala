@@ -19,7 +19,6 @@ export function bookingMessage(opts: {
   vehicle: string;
   date: string;
   time: string;
-  price?: number | null;
 }) {
   const lines = [
     `Hello ${siteConfig.name},`,
@@ -30,9 +29,9 @@ export function bookingMessage(opts: {
     `🚘 Vehicle: ${opts.vehicle}`,
     `📅 Date: ${opts.date}`,
     `⏰ Time: ${formatTime12hr(opts.time)}`,
+    ``,
+    `Please confirm availability. Thank you!`,
   ];
-  if (opts.price) lines.push(`💰 Quoted price: Rs. ${opts.price.toLocaleString("en-LK")}`);
-  lines.push(``, `Please confirm availability. Thank you!`);
   return buildWhatsAppUrl(lines.join("\n"));
 }
 
